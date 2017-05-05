@@ -3,9 +3,13 @@
         .login-head {{ isNewLogin ? 'Войти в приложение' : 'Создание учетной записи' }}
 
         .login-field
-            input(placeholder='Логин(email)', maxlength='150', v-model='email', autocomplete='off').input
+            input(placeholder='Логин(email)', maxlength='150', v-model='email', :class='{ "input--error": isErrorLogin }').input
         .login-field
-            input(placeholder='Пароль', maxlength='150', v-model='password', type='password', autocomplete='off' ).input
+            input(placeholder='Пароль', maxlength='150', v-model='password', type='password', :class='{ "input--error": isErrorPass }').input
+
+        div(v-if='isErrorLogin || isErrorPass').login-errorText
+            div(v-if='isErrorLogin') Введите корректный e-mail
+            div(v-if='isErrorPass') Введите пароль более 6 символов
 
         button(type='button', @click='isNewLogin ? signIn() : createUser()').button.u-spaceMarginBottom10 {{ isNewLogin ? 'Войти' : 'Создать' }}
 

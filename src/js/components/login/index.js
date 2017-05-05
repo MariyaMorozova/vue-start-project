@@ -7,13 +7,31 @@ export default {
         return {
             auth: new AuthProvider(),
             email: '',
-            password: ''
+            password: '',
+            isSubmitCreate: false,
+            isSubmitLogin: false
         }
     },
     computed: {
         isNewLogin: function () {
             return this.$root.currentRoute === '/login'
 
+        },
+        isErrorLogin: function () {
+            const reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/
+            let res = !reg.test(this.email)
+
+            if (this.isNewLogin) res = res && this.isSubmitLogin
+                else res = res && this.isSubmitCreate
+            return res;
+        },
+        isErrorPass: function () {
+            let res = !(this.password.length > 6)
+
+            if (this.isNewLogin) res = res && this.isSubmitLogin
+            else res = res && this.isSubmitCreate
+
+            return res
         }
     },
     methods: {
@@ -24,6 +42,9 @@ export default {
 
         },
         signIn() {
+            this.isSubmitLogin = true
+            if (this.isErrorLogin || this.isErrorPass) return
+
             const authData = { email: this.email, password: this.password}
             this.auth.signIn(authData)
                 .then(user => window.location.href = '/')
@@ -45,6 +66,7 @@ export default {
 
         },
         createUser() {
+            this.isSubmitCreate = true
             const authData = { email: this.email, password: this.password}
             this.auth.createUser(authData)
                 .then(user => window.location.href = '/')
