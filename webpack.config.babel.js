@@ -4,7 +4,7 @@ import path from 'path'
 const dev = process.env.NODE_ENV !== 'production';
 
 const options = {
-	devtool: dev ? 'source-map-eval' : false,
+	devtool: dev ? 'eval' : false,
     watch: dev,
 
     output: {
@@ -19,7 +19,7 @@ const options = {
             use: [{
             	loader: 'babel-loader',
             	options: {
-                    presets: ['es2015', 'stage-2'],
+                    presets: ['es2015', 'stage-0'],
                 }
             }]
         },{

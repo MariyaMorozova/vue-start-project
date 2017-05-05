@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname, __public)));
 
 /* def: router */
 app.use('/*', function(req, res) {
-    res.sendFile(path.join(__dirname, __public, 'main.html'));
+    res.sendFile(path.join(__dirname, __public, 'index.html'));
 });
 
 /* def: server */

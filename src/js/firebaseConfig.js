@@ -1,10 +1,10 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyBww1UhtWq-BV6l0oYArBJpk4pOTzVFXB4",
+    apiKey: process.env.FB_API_KEY,
     authDomain: "base-34c35.firebaseapp.com",
     databaseURL: "https://base-34c35.firebaseio.com",
     projectId: "base-34c35",
     storageBucket: "base-34c35.appspot.com",
-    messagingSenderId: "818005156464"
+    messagingSenderId: process.env.FB_API_SENDER
 }
 
 export default firebaseConfig

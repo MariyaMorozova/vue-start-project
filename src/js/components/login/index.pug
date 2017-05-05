@@ -1,0 +1,20 @@
+.login-block
+    form
+        .login-head {{ isNewLogin ? 'Войти в приложение' : 'Создание учетной записи' }}
+
+        .login-field
+            input(placeholder='Логин(email)', maxlength='150', v-model='email', autocomplete='off').input
+        .login-field
+            input(placeholder='Пароль', maxlength='150', v-model='password', type='password', autocomplete='off' ).input
+
+        button(type='button', @click='isNewLogin ? signIn() : createUser()').button.u-spaceMarginBottom10 {{ isNewLogin ? 'Войти' : 'Создать' }}
+
+
+    a(@click='switchLoginOrCreate()').link {{ isNewLogin ? 'Создать учтную запись' : 'Вернуться к вводу учетной записи' }}
+
+    div(v-if='isNewLogin').login-instruction
+        .login-instruction-text Войти с помощью аккаунта:
+        .login-icon-block
+            button(@click='signInGoogle()').button-social.fa.fa-google
+            button(@click='signInFacebook()').button-social.fa.fa-facebook
+            button(@click='signInGitHub()').button-social.fa.fa-github
