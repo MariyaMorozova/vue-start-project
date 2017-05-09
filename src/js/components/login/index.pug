@@ -2,14 +2,23 @@
     form
         .login-head {{ isNewLogin ? 'Войти в приложение' : 'Создание учетной записи' }}
 
-        .login-field
-            input(placeholder='Логин(email)', maxlength='150', v-model='email', :class='{ "input--error": isErrorLogin }').input
-        .login-field
-            input(placeholder='Пароль', maxlength='150', v-model='password', type='password', :class='{ "input--error": isErrorPass }').input
+        div(v-if='!isNewLogin')
+            .login-field
+                input(placeholder='Имя', maxlength='150', v-model='firstName', :class='{ "input--error": isErrorFirstName }').input
 
-        div(v-if='isErrorLogin || isErrorPass').login-errorText
+            .login-field
+                input(placeholder='Фамилия', maxlength='150', v-model='lastName', :class='{ "input--error": isErrorLastName }').input
+
+        .login-field
+            input(placeholder='Логин (email)', maxlength='150', v-model='email', @input='onInputEmail', :class='{ "input--error": isErrorLogin || isServErrLogin }').input
+        .login-field
+            input(placeholder='Пароль', maxlength='150', v-model='password', @input='onInputPass', type='password', :class='{ "input--error": isErrorPass || isServErrPass }').input
+
+        div(v-if='viewErrBlock').login-errorText
+            div(v-if='isErrRequeredName') Введите Имя и Фамилию
             div(v-if='isErrorLogin') Введите корректный e-mail
             div(v-if='isErrorPass') Введите пароль более 6 символов
+            div(v-if='servErr') {{ servErr }}
 
         button(type='button', @click='isNewLogin ? signIn() : createUser()').button.u-spaceMarginBottom10 {{ isNewLogin ? 'Войти' : 'Создать' }}
 
@@ -18,7 +27,4 @@
 
     div(v-if='isNewLogin').login-instruction
         .login-instruction-text Войти с помощью аккаунта:
-        .login-icon-block
-            button(@click='signInGoogle()').button-social.fa.fa-google
-            button(@click='signInFacebook()').button-social.fa.fa-facebook
-            button(@click='signInGitHub()').button-social.fa.fa-github
+        button(@click='signInGoogle()').button-social.fa.fa-google

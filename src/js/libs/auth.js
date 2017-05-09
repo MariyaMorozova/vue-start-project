@@ -58,22 +58,7 @@ export default class Auth {
     signInGoogle(){
         var provider = new firebase.auth.GoogleAuthProvider();
         return new Promise((resolve, reject) => {
-            this.db.auth().signInWithPopup(provider)
-                .then(user => {
-                    this.setUser(user)
-                    resolve(this.user)
-                })
-                .catch(error => {
-                    reject(error)
-                })
-
-        })
-    }
-
-    signInFacebook(){
-        var provider = new firebase.auth.FacebookAuthProvider();
-        return new Promise((resolve, reject) => {
-            this.db.auth().signInWithPopup(provider)
+            this.dbAuth.signInWithPopup(provider)
                 .then(user => {
                     this.setUser(user)
                     resolve(this.user)
@@ -88,7 +73,7 @@ export default class Auth {
     signInGithub(){
         var provider = new firebase.auth.GithubAuthProvider();
         return new Promise((resolve, reject) => {
-            this.db.auth().signInWithPopup(provider)
+            this.dbAuth.signInWithPopup(provider)
                 .then(user => {
                     this.setUser(user)
                     resolve(this.user)

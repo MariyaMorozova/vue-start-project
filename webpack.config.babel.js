@@ -4,7 +4,7 @@ import path from 'path'
 const dev = process.env.NODE_ENV !== 'production';
 
 const options = {
-	devtool: dev ? 'eval' : false,
+    devtool: dev ? 'eval' : false,
     watch: dev,
 
     output: {
@@ -17,20 +17,20 @@ const options = {
             test: /\.js?$/,
             exclude: [/node_modules/, /dist/],
             use: [{
-            	loader: 'babel-loader',
-            	options: {
+                loader: 'babel-loader',
+                options: {
                     presets: ['es2015', 'stage-0'],
                 }
             }]
-        },{
+        }, {
             test: /\.styl$/,
             exclude: [/node_modules/, /dist/],
-            use:[
-                 "style-loader",
-                 "css-loader",
-                 "stylus-loader"
+            use: [
+                "style-loader",
+                "css-loader",
+                "stylus-loader"
             ]
-        },{
+        }, {
             test: /\.pug?$/,
             exclude: [/node_modules/, /dist/],
             loader: ['raw-loader', 'pug-html-loader']
@@ -43,10 +43,10 @@ const options = {
         ],
         extensions: ['.js', '.pug', '.styl'],
         alias: {
-          'vue$': 'vue/dist/vue.js',
-          'vue-router$': 'vue-router/dist/vue-router.common.js',
-          'vuex$': 'vuex/dist/vuex.js',
-          'img': path.resolve('./src/assets/img/')
+            'vue$': 'vue/dist/vue.js',
+            'vue-router$': 'vue-router/dist/vue-router.common.js',
+            'vuex$': 'vuex/dist/vuex.js',
+            'img': path.resolve('./src/assets/img/')
         }
     },
 
