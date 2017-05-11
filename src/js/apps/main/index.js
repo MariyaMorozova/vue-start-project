@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import Todo from './../../components/todo/'
+import store from './../../store/index.js'
+
+import TodoController from './TodoController'
 import NotFound from './../../components/not-found/'
-import UserInfo from './../../components/user-info/'
 import template from './index.pug'
 
 export default () => {
@@ -12,9 +13,9 @@ export default () => {
 	const app = new Vue({
 		el: '#app',
 		template,
+        store,
         components: {
-			'user-info': UserInfo,
-            todo: Todo,
+			'todo-controller': TodoController,
             'not-found': NotFound
         },
         data() {
@@ -23,7 +24,7 @@ export default () => {
             }
         },
 		computed: {
-            isTodoComponent() {
+            isTodoController() {
                 return this.currentRoute === '/'
             }
         },

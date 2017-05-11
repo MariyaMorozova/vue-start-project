@@ -20,11 +20,11 @@
             div(v-if='isErrorPass') Введите пароль более 6 символов
             div(v-if='servErr') {{ servErr }}
 
-        button(type='button', @click='isNewLogin ? signIn() : createUser()').button.u-spaceMarginBottom10 {{ isNewLogin ? 'Войти' : 'Создать' }}
+        button(type='button', @click='isNewLogin ? signIn() : createUser()').button.button--fullSize.button--blue.u-spaceMarginBottom10 {{ isNewLogin ? 'Войти' : 'Создать' }}
 
 
     a(@click='switchLoginOrCreate()').link {{ isNewLogin ? 'Создать учтную запись' : 'Вернуться к вводу учетной записи' }}
 
     div(v-if='isNewLogin').login-instruction
         .login-instruction-text Войти с помощью аккаунта:
-        button(@click='signInGoogle()').button-social.fa.fa-google
+        button(@click='signInGoogle()').button.button--mini.fa.fa-google

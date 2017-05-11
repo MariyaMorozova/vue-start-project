@@ -1,7 +1,8 @@
 .button
 	box-sizing border-box
-	background #56adff
-	border none
+	background #f1f5f9
+	color #666
+	border 1px solid #f1f5f9
 	border-radius 5px
 	cursor: pointer
 	outline none
@@ -10,26 +11,28 @@
 	font-size 13px
 
 	padding 8px 16px
-	width 100%
 
-	color: #fff
+	height 30px
 
 	&:hover
 	&:focus
-		border 1px solid #3b679d
-		padding 7px 15px
+		border-color: #c3c7cb
 
-	&-social
-		background #f1f5f9
-		color #999
-		width 25px
-		height 25px
-		border none
-		margin-right 8px
-		cursor pointer
-		outline none
-		border-radius 3px
+	&--fullSize
+		width 100%
+
+	&--mini
+		width 30px
+		height 30px
+		margin-right 5px
+		padding 0
+		text-align center
+
+	&--blue
+		background #56adff
+		border 1px solid #56adff
+		color: #fff
 
 		&:hover
 		&:focus
-			border 1px solid #c3c7cb
+			border-color #3b679d

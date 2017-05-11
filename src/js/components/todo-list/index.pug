@@ -1,0 +1,31 @@
+.content
+    .todo-head
+        h1 Задачи
+        button(@click='selectAllTodoList').button
+            span.fa.fa-check-square-o.u-spaceMarginRight10
+            span Переместить все задачи в выполненные
+
+    todo-add(@create='addTodoItem').u-spaceMarginBottom10
+
+    todo-item(v-for='(todo, index) in uncompletedTodoList',
+    :todoObj='todo',
+    :key='todo.id',
+    @remove='removeTodoItem',
+    @change='changeTodoItem')
+
+    .todo-empty(v-if='!uncompletedTodoList.length') Нет невыполненных задач
+
+    .todo-head
+        h1 Выполненные задачи
+        button(@click='removeAllCompleteTodoList').button
+            span.fa.fa-trash-o.u-spaceMarginRight10
+            span Удалить все выполненные задачи
+
+    .todo-empty(v-if='!completedTodoList.length') Нет выполненных задач
+
+    todo-item(v-for='(todo, index) in completedTodoList',
+    :todoObj='todo',
+    :key='todo.id',
+    @remove='removeTodoItem',
+    @change='changeTodoItem')
+

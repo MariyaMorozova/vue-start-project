@@ -1,0 +1,87 @@
+.todo
+	&-head
+		& h1
+			display inline-block
+			color: #000
+			font-size 23px
+			padding-right 20px
+			margin 50px 0 20px
+
+		& button
+			display inline-block
+
+	&-empty
+		box-sizing border-box
+		border 1px solid #e7ebef
+		border-radius 5px
+
+		color: #666
+
+		padding 7px 45px 7px 15px
+		height 30px
+
+		width: 80%
+		max-width 800px
+		min-width 500px
+
+	&-item
+		box-sizing border-box
+		background #f1f5f9
+		border none
+		border-radius 5px
+
+		color: #666
+
+		padding 8px 46px 8px 16px
+		width 100%
+		height 30px
+
+		&Block
+			position relative
+			box-sizing border-box
+			padding-bottom 10px
+
+			width: 80%
+			max-width 800px
+			min-width 500px
+
+		&-check
+			box-sizing border-box
+			position absolute
+			top 0
+			right 0
+
+			width 30px
+			height 30px
+			padding 8px
+			margin-bottom 10px
+			text-align center
+
+			background #eaeef2
+			border 1px solid #eaeef2
+			border-radius 0 5px 5px 0
+			color #666
+
+			cursor pointer
+
+			&:hover
+				border 1px solid #c3c7cb
+
+			&--active
+				background #56adff
+				color: #fff
+				border 1px solid #56adff
+
+				&:hover
+					border-color #3b679d
+
+		&-buttonBlock
+			box-sizing border-box
+			position absolute
+			top 0
+			right -210px
+
+			width 200px
+			height 100%
+
+

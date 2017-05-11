@@ -1,4 +1,4 @@
-.userBlock Вы вошли как пользователь:
-    .user-name {{ name || email }}
+.userBlock
+    .user-name {{ user.displayName || user.email }}
 
     a(@click='signOut').link Выйти

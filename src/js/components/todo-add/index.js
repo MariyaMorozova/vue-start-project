@@ -4,13 +4,13 @@ export default {
     template,
     data() {
         return {
-            list: []
+            newItem: ''
         }
     },
-    computed: {
-
-    },
     methods: {
-
+        addTodo() {
+            this.$emit('create', this.newItem)
+            this.newItem = ''
+        }
     }
 }

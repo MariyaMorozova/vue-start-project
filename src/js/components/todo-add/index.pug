@@ -1,0 +1,5 @@
+.todo-itemBlock
+    input(placeholder='Новая задача', v-model='newItem', @keyup.enter='addTodo').input
+
+    .todo-item-buttonBlock
+        button(@click='addTodo').button.button--mini.button--blue.fa.fa-plus
