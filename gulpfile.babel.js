@@ -12,7 +12,7 @@ import webpack from 'webpack'
 
 import options from './webpack.config.babel.js'
 
-const watch = process.env.NODE_ENV !== 'development';
+const watch = process.env.NODE_ENV === 'development';
 
 const defaultTasks = ['dist']
 

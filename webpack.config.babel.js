@@ -2,7 +2,7 @@ import webpack from 'webpack'
 import path from 'path'
 
 const dev = process.env.NODE_ENV !== 'production';
-const watch = process.env.NODE_ENV !== 'development';
+const watch = process.env.NODE_ENV === 'development';
 
 const options = {
     devtool: dev ? 'eval' : false,
