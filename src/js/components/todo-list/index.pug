@@ -5,13 +5,15 @@
             span.fa.fa-check-square-o.u-spaceMarginRight10
             span Переместить все задачи в выполненные
 
-    todo-add(@create='addTodoItem').u-spaceMarginBottom10
+    todo-add(@create='addTodoItem', :disabledButton='disabledButton').u-spaceMarginBottom10
 
     todo-item(v-for='(todo, index) in uncompletedTodoList',
     :todoObj='todo',
+    :disabledButton='disabledButton',
     :key='todo.id',
     @remove='removeTodoItem',
-    @change='changeTodoItem')
+    @change='changeTodoItem',
+    @setDisabled='disabledButton = !disabledButton')
 
     .todo-empty(v-if='!uncompletedTodoList.length') Нет невыполненных задач
 
@@ -25,7 +27,9 @@
 
     todo-item(v-for='(todo, index) in completedTodoList',
     :todoObj='todo',
+    :disabledButton='disabledButton',
     :key='todo.id',
     @remove='removeTodoItem',
-    @change='changeTodoItem')
+    @change='changeTodoItem',
+    @setDisabled='disabledButton = !disabledButton')
 

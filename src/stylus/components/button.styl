@@ -18,6 +18,13 @@
 	&:focus
 		border-color: #c3c7cb
 
+	&:disabled
+		color #b2b2b2
+		cursor auto
+
+		&:hover
+			border-color #f1f5f9
+
 	&--fullSize
 		width 100%
 
@@ -36,3 +43,9 @@
 		&:hover
 		&:focus
 			border-color #3b679d
+
+		&:disabled
+			color rgba(255, 255, 255, .7)
+
+			&:hover
+				border 1px solid #56adff

@@ -2,12 +2,15 @@
 
     div(v-if='!editMode')
         .todo-item {{ todoObj.title }}
-        div(@click='setCompleted', :class='{"todo-item-check--active" : todoObj.complete}').todo-item-check.fa.fa-check-square-o
+        button(@click='setCompleted', :class='{"todo-item-check--active" : todoObj.complete}', :disabled='disabledButton').todo-item-check.fa.fa-check-square-o
 
-    input(v-model='changedTitle', placeholder='Наименование задачи', v-if='editMode', :id='"todo-input" + todoObj.id').input
+    input(v-model='changedTitle',
+    placeholder='Наименование задачи', v-if='editMode',
+    @keyup.enter='confirmEditOrDelete', @keyup.esc='cancelModes',
+    :id='"todo-input" + todoObj.id').input
 
     .todo-item-buttonBlock
-        button(@click='clickEdit()', v-if='!editMode && !deleteMode').button.button--mini.fa.fa-pencil
-        button(@click='deleteMode = !deleteMode', v-if='!editMode && !deleteMode').button.button--mini.fa.fa-trash-o
+        button(@click='clickEdit', v-if='!editMode && !deleteMode', :disabled='disabledButton').button.button--mini.fa.fa-pencil
+        button(@click='clickDelete', v-if='!editMode && !deleteMode', :disabled='disabledButton').button.button--mini.fa.fa-trash-o
         button(@click='confirmEditOrDelete', v-if='editMode || deleteMode').button.button--mini.fa.fa-check
         button(@click='cancelModes', v-if='editMode || deleteMode').button.button--mini.fa.fa-times

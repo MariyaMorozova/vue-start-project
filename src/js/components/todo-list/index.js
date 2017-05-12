@@ -10,6 +10,11 @@ export default {
         'todo-item': TodoItem,
         'todo-add': TodoAdd
     },
+    data() {
+        return {
+            disabledButton: false
+        }
+    },
     computed: {
         ...mapGetters(['todoList', 'completedTodoList', 'uncompletedTodoList'])
     },

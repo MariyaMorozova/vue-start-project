@@ -1,5 +1,8 @@
 div
     user-info
-    todo-list
+    todo-list(v-if='!todoPreloader')
 
+    .preloaderBlock(v-else)
+        .preloader.fa.fa-spinner.fa-pulse.fa-3x.fa-fw
+        span Загрузка
 

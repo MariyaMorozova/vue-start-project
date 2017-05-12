@@ -48,6 +48,7 @@
 		&-check
 			box-sizing border-box
 			position absolute
+			outline none
 			top 0
 			right 0
 
@@ -67,6 +68,13 @@
 			&:hover
 				border 1px solid #c3c7cb
 
+			&:disabled
+				color #b2b2b2
+				cursor auto
+
+				&:hover
+					border 1px solid #eaeef2
+
 			&--active
 				background #56adff
 				color: #fff
@@ -74,6 +82,13 @@
 
 				&:hover
 					border-color #3b679d
+
+				&:disabled
+					color rgba(255, 255, 255, .7)
+					cursor auto
+
+					&:hover
+						border 1px solid #56adff
 
 		&-buttonBlock
 			box-sizing border-box

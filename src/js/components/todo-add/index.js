@@ -7,8 +7,10 @@ export default {
             newItem: ''
         }
     },
+    props: ['disabledButton'],
     methods: {
         addTodo() {
+            if (this.disabledButton) return
             this.$emit('create', this.newItem)
             this.newItem = ''
         }
