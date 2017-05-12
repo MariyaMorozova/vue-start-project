@@ -11,7 +11,7 @@ const options = {
     output: {
         path: path.resolve(__dirname, 'dist/js'),
         publicPath: '/js/',
-        filename: dev ? '[name].js' : '[chunkhash:12].js'
+        filename: '[name].js'
     },
     module: {
         rules: [{
