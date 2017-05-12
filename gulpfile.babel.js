@@ -39,7 +39,7 @@ gulp.task('js', callback => {
 	.pipe(webpackStream(options, webpack))
 	.pipe(gulp.dest('dist/js'))
 	.on('data', () => {
-		if (!callback.called) {
+		if (!callback.called && watch) {
 			callback.called = true;
 			callback();
 		}
