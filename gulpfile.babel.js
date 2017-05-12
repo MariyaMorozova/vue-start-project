@@ -12,8 +12,14 @@ import webpack from 'webpack'
 
 import options from './webpack.config.babel.js'
 
+const watch = process.env.NODE_ENV !== 'development';
+
+const defaultTasks = ['dist']
+
+if (watch) defaultTasks.push('watch')
+
 /* @gulp: default */
-gulp.task('default',['dist', 'watch'], () => {
+gulp.task('default', defaultTasks, () => {
 	server.listen({path: './server.js',execArgv: ['--harmony']}, () => {
 		util.log(util.colors.yellow.bold(':: DEBUG MODE ::'))
 	});
